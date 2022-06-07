@@ -27,20 +27,20 @@ class Solution(object):
 #         l = []
 #         s = list(s)
 #         n = len(s)
-#         m = [s[0]]
+#         m = [ord(s[0])]
         
         
 #         for i in range(1, n):
 #             j = (len(m)-1)
-#             while(s[i] != m[j] and j >=0):
+#             while(ord(s[i]) != m[j] and j >=0):
 #                 j -= 1
 #             if(j == -1):
-#                 m.append(s[i])
+#                 m.append(ord(s[i]))
 #             else:
 #                 x = len(m)
 #                 l.append(x)
 #                 m =[]
-#                 m.append(s[i])
+#                 m.append(ord(s[i]))
                     
 #         return(max(l))
                     
