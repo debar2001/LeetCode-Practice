@@ -11,7 +11,7 @@ class Solution(object):
         
 #         if len(A) > len(B):
 #             A, B = B, A
-        
+            
 #         l,r = 0, len(A)-1
         
 #         while True:
