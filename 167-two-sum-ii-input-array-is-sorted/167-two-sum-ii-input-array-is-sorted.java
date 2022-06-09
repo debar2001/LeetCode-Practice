@@ -13,8 +13,7 @@ class Solution {
             else{
                 m[0] = l+1;
                 m[1] = r+1;
-                l++;
-                r--;
+                break;
             }
         }
        return m; 
