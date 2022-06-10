@@ -11,7 +11,6 @@ class Solution(object):
         i = 0
         while(i<len(s)):
             temp = ord(s[i])
-            #print(temp)
             if(temp not in dict_):
                 dict_[temp] = i
                 count+=1
