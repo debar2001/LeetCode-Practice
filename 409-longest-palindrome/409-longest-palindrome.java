@@ -1,6 +1,7 @@
+import java.util.Hashtable;
 class Solution {
     public int longestPalindrome(String s) {
-        Map<Character, Integer> counts = new HashMap<Character, Integer>();
+        Hashtable<Character, Integer> counts = new Hashtable<Character, Integer>();
         for(char c: s.toCharArray()){
             counts.put(c, counts.getOrDefault(c, 0)+1);
         }
