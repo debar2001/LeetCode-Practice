@@ -1,14 +1,14 @@
 class Solution {
     public int edgeScore(int[] edges) {
-//         HashMap<Integer, Integer> map = new HashMap<>();
+//         TreeMap<Integer, Long> map = new TreeMap<>();
 //         int n = edges.length;
         
 //         for(int i=0; i<n; i++){
-//             int count = map.containsKey(edges[i])? map.get(edges[i]):0;
+//             long count = map.containsKey(edges[i])? map.get(edges[i]):0L;
 //             map.put(edges[i], count+i);
 //         }
-//         int max = Integer.MIN_VALUE;
-//         for(int value: map.values()){
+//         Long max = Long.MIN_VALUE;
+//         for(long value: map.values()){
 //             max = Math.max(max, value);
 //         }
 //         int ans = 0;
