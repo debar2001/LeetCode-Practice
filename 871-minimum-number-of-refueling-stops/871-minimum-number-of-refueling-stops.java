@@ -1,37 +1,35 @@
 class Solution {
-    public int minRefuelStops(int target, int startFuel, int[][] stations) {
-        int n = stations.length;
-  
-        int[][] dp = new int[n+1][n+1];
-        for (int[] arr : dp) Arrays.fill(arr, -1);
+    public int minRefuelStops(int target, int tank, int[][] stations) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a,b) -> b-a);
+        int res = 0, prevLoc = 0;
         
-        // 0 refuel
-        dp[0][0] = startFuel;
-        for (int i = 1; i <= n; i++) {
-            if (stations[i-1][0] > startFuel) break;
-            dp[i][0] = startFuel;
-        }
-        
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                if (dp[i-1][j] >= stations[i-1][0]) {
-                    dp[i][j] = dp[i-1][j];
-                }
-                
-                
-                if (dp[i-1][j-1] >= stations[i-1][0]) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i-1][j-1] + stations[i-1][1]);
-                }
-                
+        for (int[] station: stations) {
+            int loc = station[0];
+            int gas = station[1];
+            
+            tank -= (loc - prevLoc);
+            
+            // retrospectively refuel
+            while (!heap.isEmpty() && tank < 0) { 
+                tank += heap.poll();
+                res++;
             }
+
+            if (tank < 0) return -1;
+            
+            heap.offer(gas);
+            prevLoc = loc;
+        }
+
+        
+        // now assume we reach the target 
+        tank -= (target - prevLoc);
+        while (!heap.isEmpty() && tank < 0) {
+            tank += heap.poll();
+            res++;
         }
         
-  
-        
-        for (int i = 0; i <= n; i++) {
-            if (dp[n][i] >= target) return i;
-        }
-        
-        return -1;
+        if (tank < 0) return -1;
+        return res;
     }
 }
