@@ -10,6 +10,6 @@ class Solution {
             }
         }
 
-        return new int[]{}; 
+        return null; 
     }
 }
