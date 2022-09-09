@@ -1,14 +1,17 @@
 class Solution {
     public int fib(int n) {
-        int[] a = new int[n + 2];
 
-        a[0] = 0;
-        a[1] = 1;
+        int prev2 = 0;
+        int prev = 1;
 
         for (int i = 2; i <= n; i++) {
-            a[i] = a[i - 1] + a[i - 2];
+            int cur = prev + prev2;
+            prev2 = prev;
+            prev = cur;
         }
-
-        return a[n];
+        if(n==0){
+            return prev2;
+        }
+        return prev;
     }
 }
